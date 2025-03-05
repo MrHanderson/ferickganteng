@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hoax Detector</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+      }
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: auto;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>AI Hoax Detector</h2>
+      <p>Masukkan teks berita untuk diperiksa:</p>
+      <textarea
+        id="newsInput"
+        placeholder="Masukkan berita di sini..."
+      ></textarea>
+      <button onclick="checkNews()">Cek Berita</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function checkNews() {
+        let input = document.getElementById("newsInput").value;
+        let resultElement = document.getElementById("result");
+
+        if (input.trim() === "") {
+          resultElement.innerHTML = "Silakan masukkan teks berita!";
+          resultElement.style.color = "red";
+          return;
+        }
+
+        // Simulasi hasil deteksi (karena belum ada backend AI)
+        let fakeProbability = Math.random();
+        let result =
+          fakeProbability > 0.5
+            ? "Berita ini kemungkinan HOAKS!"
+            : "Berita ini kemungkinan BENAR!";
+
+        resultElement.innerHTML = result;
+        resultElement.style.color = fakeProbability > 0.5 ? "red" : "green";
+      }
+    </script>
+  </body>
+</html>
